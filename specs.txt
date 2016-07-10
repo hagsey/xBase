@@ -1,0 +1,8 @@
+1. be able to submit a new exercise from the modal
+2. the 'most recent text should be updated'
+3. have the new exercise fade in
+4. add a delete button and fade out that exercise
+2. be able to 'like' an exercise
+3. when hovering a row, highlight the row and update the featured sidebar
+4. Update the total exercises field in the secondary header
+8. add a search function

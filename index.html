@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  	<title>xBase</title>
+  	<meta charset="utf-8">
+  	<link rel="stylesheet" href="stylesheets/main.css" type="text/css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="javascripts/handlebars-v4.0.5.js"></script>
+  	<script src="javascripts/main.js"></script>
+  </head>
+  <body>
+    <header id="primary">
+      <img class="logo" src="images/img_logo.png">
+    </header>
+
+    <header id="secondary" class="clearfix">
+      <ul>
+        <li id="total">
+          <h4>Total exercises:</h4>
+          <p></p>
+        </li>
+        <li>
+          <form action="#">
+            <input type="text" placeholder="Search" name="search" id="search"></input>
+          </form>
+        </li>
+      </ul>
+      <div class="button" id="add_exercise_button">
+        <a href="#">Add new exercise</a>
+      </div>
+    </header>
+
+    <main>
+      <table id="library">
+        <thead>
+          <tr>
+            <th class="exercise">Exercise</th>
+            <th class="likes">Likes</th>
+            <th class="date">Date added</th>
+            <th class="delete"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>1</td>
+            <td><a href="#" data-id ="1" class="likes">2</a></td>
+            <td>Front squat</td>
+            <td class="date">Apr 1, 2016</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="#" data-id="2" class="likes">0</a></td>
+            <td>Hang clean</td>
+            <td class="date">March 2, 2016</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="#" data-id="2" class="likes">1</a></td>
+            <td>Chin-up</td>
+            <td class="date">March 22, 2016</td>
+          </tr> -->
+        </tbody>
+      </table>
+      <aside>
+        <div class="recently_added">
+          <h2>Recently added</h2>
+          <h3></h3>
+        </div>
+        <div class="featured">
+          <h2>Featured</h2>
+          <h3></h3>
+          <p></p>
+        </div>
+      </aside>
+    </main>
+
+    <div class="modal" id="new_exercise_modal">
+      <a class="close" href="#">Close</a>
+      <h3>Add new exercise</h3>
+      <form id="add_exercise" autocomplete="off">
+        <fieldset>
+          <dl>
+            <dt><label for="exercise_name">Exercise name</dt>
+            <dd><input name="exercise_name" id="exercise_name" type="text" required>
+          </dl>
+          <input type="submit" class="button" value="Add"></input>
+        </fieldset>
+      </form>
+    </div>
+    <div class="modal_layer" id="new_exercise_modal_layer"></div>
+
+    <script type="text/x-handlebars" id="library_item">
+      <tr>
+        <input type="hidden" name="exercise_id" value="{{id}}">
+        <td class="exercise">{{name}}</td>
+        <td class="likes"><a href="#" data-id="1" class="likes">{{likes}}</a></td>
+        <td class="date">{{date}}</td>
+        <td class="delete"><a href="#" class="delete">Delete</td>
+      </tr>
+    </script>
+
+    <script type="text/x-handlebars" id="library_item_list">
+      {{#each collection}}
+      {{>library_item}}
+      {{/each}}
+    </script>
+  </body>
+</html>
